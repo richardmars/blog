@@ -1,0 +1,74 @@
+# SSH协议理解
+
+参考文档：
+- 鸟哥的linux私房菜-服务器：[第十一章、远程联机服务器SSH / XDMCP / VNC / RDP](http://cn.linux.vbird.org/linux_server/0310telnetssh_2.php)
+
+# 原理
+
+## 非对称加密
+
+主要是透过两把不一样的公钥与私钥 (Public and Private Key) 来进行加密与解密的过程
+
+- 公钥 (public key)：提供给远程主机进行数据加密的行为，也就是说，大家都能取得你的公钥来将数据加密的意思；
+- 私钥 (private key)：远程主机使用你的公钥加密的数据，在本地端就能够使用私钥来进行解密。由于私钥是这么的重要， 因此私钥是不能够外流的！只能保护在自己的主机上
+
+每部主机都有自己的密钥（公钥和私钥），且公钥用来加密而私钥用来解密， 其中私钥不可外流。但因为网络联机是双向的，所以，每个人应该都要有对方的公钥。
+
+> 加密技术众多，存在不同的优缺点，有的指令周期快，但不安全，有的安全但加密解密速度慢。
+> SSH采用RSA/DSA/DiffieHellman等机制
+
+SSH基本原理  
+![](http://cn.linux.vbird.org/linux_server/0310telnetssh_files/keypair-2.gif)
+
+SSH联机过程  
+![](http://cn.linux.vbird.org/linux_server/0310telnetssh_files/ssh-keypair2.gif)
+
+## SSH服务
+
+服务端提供的公钥与自己的私钥都放置于 /etc/ssh/ssh_host*，对于不同具体加密协议有不同的密钥对
+```sh
+root@LFG1000847446:~# ll /etc/ssh/ssh_host*
+-rw------- 1 root root  672 Aug  5  2015 /etc/ssh/ssh_host_dsa_key
+-rw-r--r-- 1 root root  601 Aug  5  2015 /etc/ssh/ssh_host_dsa_key.pub
+-rw------- 1 root root  227 Aug  5  2015 /etc/ssh/ssh_host_ecdsa_key
+-rw-r--r-- 1 root root  173 Aug  5  2015 /etc/ssh/ssh_host_ecdsa_key.pub
+-rw------- 1 root root  399 Aug  5  2015 /etc/ssh/ssh_host_ed25519_key
+-rw-r--r-- 1 root root   93 Aug  5  2015 /etc/ssh/ssh_host_ed25519_key.pub
+-rw------- 1 root root 1675 Aug  5  2015 /etc/ssh/ssh_host_rsa_key
+-rw-r--r-- 1 root root  393 Aug  5  2015 /etc/ssh/ssh_host_rsa_key.pub
+```
+
+启动服务和服务端口
+
+```sh
+root@LFG1000847446:~# /etc/init.d/sshd restart
+root@LFG1000847446:~# netstat -tlnp | grep ssh
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      44781/sshd
+tcp6       0      0 :::22                   :::*                    LISTEN      44781/sshd
+```
+
+> SSH服务不光包含ssh protocol的内容，还提供了安全的ssh ftp server服务
+
+当服务器的ssh公钥发生变化，则会出现公钥不匹配的问题，需要手工删除.ssh/known_hosts的对应行（该例是第1行）
+
+```
+[root@www ~]# ssh root@localhost
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @ <==就告诉你可能有问题
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+a7:2e:58:51:9f:1b:02:64:56:ea:cb:9c:92:5e:79:f9.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending key in /root/.ssh/known_hosts:1 <==冒号后面接的数字就是有问题数据行号
+RSA host key for localhost has changed and you have requested strict checking.
+Host key verification failed.
+```
+
+# FAQ
+
+- 客户端的私钥存放在哪
+
