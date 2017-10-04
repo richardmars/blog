@@ -50,7 +50,7 @@ ln -s /usr/bin/nodejs /usr/bin/node
 ```
 apt-get install -f
 ```
-  
+
 ### 无线网卡
 
 尽量插上无线网卡之后再安装操作系统，手动安装目前还没成功
