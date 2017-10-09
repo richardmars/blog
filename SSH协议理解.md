@@ -54,7 +54,7 @@ tcp6       0      0 :::22                   :::*                    LISTEN      
 
 当服务器的ssh公钥发生变化，则会出现公钥不匹配的问题，需要手工删除.ssh/known_hosts的对应行（该例是第1行）
 
-```
+```sh
 [root@www ~]# ssh root@localhost
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @ <==就告诉你可能有问题
@@ -78,7 +78,7 @@ Host key verification failed.
 默认情况下，客户端的公私钥数据是在连接建立过程中（第4步）随机运算出来的，如果客户端先创建出固定的公私钥数据，然后公钥数据放置到服务器上，服务器就可以根据客户端的公钥数据认为客户端远程登录是合法的，也就不用提供密码。
 
 
-```
+```sh
 xic@xic-desktop:~$ ssh-keygen
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/xic/.ssh/id_rsa): 
@@ -105,7 +105,7 @@ The key's randomart image is:
 
 生成的公私钥数据存放在`～/.ssh/`中，将`~/.ssh/id_rsa.pub`的内容存放到服务端的`~/.ssh/authorized_keys`中，执行`ssh-add`更新ssh agent中的key，即可免密码登录。
 
-```
+```sh
 xic@xic-desktop:~$ ssh-add
 Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 ```
@@ -120,7 +120,7 @@ Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 
 安全的网络复制工具，shell脚本中经常使用。如果第一次登录且不想交互式输入密码，需要使用另外一个工具：passssh
 
-```
+```sh
 sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no root@100.120.252.146:~/test.txt ~/
 ```
 
