@@ -121,7 +121,7 @@ Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 安全的网络复制工具，shell脚本中经常使用。如果第一次登录且不想交互式输入密码，需要使用另外一个工具：passssh
 
 ```sh
-sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no root@100.120.252.146:~/test.txt ~/
+xic@xic-desktop:~$ sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no root@100.120.252.146:~/test.txt ~/
 ```
 
 #### git
