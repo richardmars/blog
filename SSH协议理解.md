@@ -1,8 +1,5 @@
 # SSH协议理解
 
-参考文档：
-- 鸟哥的linux私房菜-服务器：[第十一章、远程联机服务器SSH / XDMCP / VNC / RDP](http://cn.linux.vbird.org/linux_server/0310telnetssh_2.php)
-
 SSH（Secure SHell protocol）：安全Shell程序协议，基于TCP的应用层协议
 
 # 原理
@@ -130,4 +127,9 @@ sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no root@100.120.252.146:~
 #### git
 
 git支持的两种同步方式：http和ssh，ssh免密码参考isource的配置。
+
+
+# 参考文档
+
+- 鸟哥的linux私房菜-服务器：[第十一章、远程联机服务器SSH / XDMCP / VNC / RDP](http://cn.linux.vbird.org/linux_server/0310telnetssh_2.php)
 
