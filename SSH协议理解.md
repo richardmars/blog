@@ -113,8 +113,12 @@ Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 
 #### sftp
 
-安全加密的FTP协议，相当于通过ssh协议登录，然后执行FTP操作（cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get）。
+安全加密的FTP协议，相当于通过ssh协议登录，然后执行FTP操作：
 
+```
+cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get
+
+```
 #### scp
 
 安全的网络复制工具，shell脚本中经常使用。如果第一次登录且不想交互式输入密码，需要使用另外一个工具：passssh
