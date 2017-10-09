@@ -113,7 +113,7 @@ Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 
 #### sftp
 
-安全加密的ftp协议
+安全加密的FTP协议，相当于通过ssh协议登录，然后执行FTP操作（cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get）。
 
 #### scp
 
