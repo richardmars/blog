@@ -117,7 +117,6 @@ Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 
 ```
 cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get
-
 ```
 #### scp
 
