@@ -77,7 +77,6 @@ Host key verification failed.
 
 默认情况下，客户端的公私钥数据是在连接建立过程中（第4步）随机运算出来的，如果客户端先创建出固定的公私钥数据，然后公钥数据放置到服务器上，服务器就可以根据客户端的公钥数据认为客户端远程登录是合法的，也就不用提供密码。
 
-
 ```sh
 xic@xic-desktop:~$ ssh-keygen
 Generating public/private rsa key pair.
