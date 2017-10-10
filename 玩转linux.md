@@ -64,3 +64,17 @@ nohup java -jar test.jar &
 ```
 
 nohup 意思是不挂断运行命令,当账户退出或终端关闭时，程序仍然运行，日志输出默认文件：nohup.out
+
+# FAQ
+
+#### 开机启动执行命令
+
+编辑/etc/rc.local，添加命令
+
+#### error while loading shared libraries: libssl.so.10: cannot open shared object file
+
+可以删除对应的ssl，如果出现错误，针对错误继续remove，完之后用apt-get install ssh重新安装对应包
+
+```
+apt-get remove libssl1.0.0 libssl-dev
+```
