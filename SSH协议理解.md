@@ -130,6 +130,13 @@ xic@xic-desktop:~$ sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no roo
 
 git支持的两种同步方式：http和ssh，ssh免密码参考isource的配置。
 
+# FAQ
+
+#### 配置了public key，却连接不上git仓库，尤其是在动了ssh相关库之后
+
+可能需要重启ssh-agent，参考[Could not open a connection to your authentication agent](https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent)
+
+
 
 # 参考文档
 
