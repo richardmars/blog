@@ -170,6 +170,22 @@ reset branch:
 
 ![](https://git-scm.com/images/reset/reset-checkout.png)
 
+# FAQ
+
+#### There is no tracking information for the current branch.
+
+```
+git branch --set-upstream-to=origin/<branch> master
+```
+
+#### warning: LF will be replaced by CRLF in bootstrap/css/bootstrap-theme.css
+
+Unix采用LF形式，可以通过input选项将windows checkout保持在crlf，而unix还是lf，参考[stackoverflow](https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important)
+
+```
+git config --global core.autocrlf input
+```
+
 # 其他
 
 * 找回没有引用的commit，参考reflog
@@ -179,3 +195,4 @@ reset branch:
   * rebase简单化版本过程
 
 * 理解diff输出，参考[How to read the output from git diff?](https://stackoverflow.com/questions/2529441/how-to-read-the-output-from-git-diff)
+
