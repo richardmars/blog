@@ -203,6 +203,10 @@ Jenkins例子中需要使用docker，关于docker的安装可以参考[计算云
     ```
 
     ```
+  - 对于apt-key
+    ```
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --keyserver-options http-proxy=http://localhost:3128 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+    ```
 
 ## java环境安装（jdk1.8+）
 
