@@ -83,3 +83,7 @@ nohup 意思是不挂断运行命令,当账户退出或终端关闭时，程序�
 apt-get remove libssl1.0.0 libssl-dev
 ```
 
+#### 保证apt版本和source.list中一致
+```
+apt-get install --only-upgrade apt
+```
