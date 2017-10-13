@@ -87,3 +87,4 @@ apt-get remove libssl1.0.0 libssl-dev
 ```
 apt-get install --only-upgrade apt
 ```
+安装特定版本或者降级参考：[How to install specific version of some package? ](https://askubuntu.com/questions/428772/how-to-install-specific-version-of-some-package/428778)
