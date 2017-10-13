@@ -204,8 +204,14 @@ Jenkins例子中需要使用docker，关于docker的安装可以参考[计算云
 
     ```
   - 对于apt-key
-    ```
+    参考[Unable to add gpg key with apt-key behind a proxy](https://unix.stackexchange.com/questions/361213/unable-to-add-gpg-key-with-apt-key-behind-a-proxy)
+    ```
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --keyserver-options http-proxy=http://localhost:3128 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+    ```
+  - 对于apt-get
+    执行`visudo`，`Defaults env_reset`下面添加，参考[How to run “sudo apt-get update” through proxy in commandline?](https://askubuntu.com/questions/7470/how-to-run-sudo-apt-get-update-through-proxy-in-commandline)
+    ```
+    Defaults env_keep = "http_proxy ftp_proxy" 
     ```
 
 ## java环境安装（jdk1.8+）
