@@ -186,6 +186,12 @@ Unix采用LF形式，可以通过input选项将windows checkout保持在crlf，�
 git config --global core.autocrlf input
 ```
 
+#### server certificate verification failed. CAfile: /etc/ssl/certs/ca-certificates.crt CRLfile: none
+
+```
+git config --global http.sslverify false
+```
+
 # 其他
 
 * 找回没有引用的commit，参考reflog
