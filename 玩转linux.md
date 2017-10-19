@@ -57,7 +57,7 @@ apt-get install -f
 
 # 基本操作
 
-## 后台运行程序
+#### 后台运行程序
 
 ```
 nohup java -jar test.jar &
@@ -65,9 +65,18 @@ nohup java -jar test.jar &
 
 nohup 意思是不挂断运行命令,当账户退出或终端关闭时，程序仍然运行，日志输出默认文件：nohup.out
 
-## 键盘对应
+#### 键盘对应
 
 ^对应ctrl
+
+#### 磁盘挂载
+
+[Ubuntu Linux 永久挂载(mount)分区](http://www.linuxidc.com/Linux/2014-04/100488.htm)
+
+```
+mkfs.ext3 -j /dev/xvdf
+mount /dev/xvdf /usr3
+```
 
 # FAQ
 
