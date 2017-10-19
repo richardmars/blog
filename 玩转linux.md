@@ -82,7 +82,14 @@ mount /dev/xvdf /usr3
 
 #### 开机启动执行命令
 
-编辑/etc/rc.local，添加命令
+```
+crontab -e
+@reboot /path/to/script
+```
+
+备用方法：编辑/etc/rc.local，添加命令。
+
+参考[How to run scripts on start up?](https://askubuntu.com/questions/814/how-to-run-scripts-on-start-up)
 
 #### error while loading shared libraries: libssl.so.10: cannot open shared object file
 
