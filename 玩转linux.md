@@ -44,6 +44,31 @@ ln -s /usr/bin/nodejs /usr/bin/node
     
 ## 桌面版环境
 
+### vscode
+
+除了官方的linux版本安装方法外，针对ubuntu可以采用umake进行安装，参考[How to Install Visual Studio Code on Ubuntu](http://www.omgubuntu.co.uk/2015/05/how-to-install-microsoft-visual-studio-code-in-ubuntu).
+```
+sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+sudo apt-get update && sudo apt-get install ubuntu-make
+umake web visual-studio-code
+```
+安装完成后可能存在一点问题，运行对应的code文件提示缺少包
+```sh
+xyc@xyc-desktop:~/.local/share/umake/web/visual-studio-code$ ./code 
+./code: error while loading shared libraries: libgconf-2.so.4: cannot open shared object file: No such file or directory
+```
+用命令安装依赖(上面一个命令使用了错误的执行文件，应该执行`bin/`目录下面的code脚本)
+```
+sudo apt install gconf2
+```
+
+### pycharm
+
+同vscode一样，可以通过umake进行安装
+```sh
+sudo apt install gconf2
+```
+
 ### 搜狗输入法
 在官方网站下载对应的deb包，然后在命令行进行安装，如果安装错误，执行下面脚本，重启电脑，然后在输入法管理器中选择非当前语言的输入法，找到搜狗输入法  
 
