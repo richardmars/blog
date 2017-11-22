@@ -64,7 +64,7 @@ sudo apt install gconf2
 
 ### pycharm
 
-同vscode一样，可以通过umake进行安装
+同vscode一样，可以通过umake进行安装，参考：[How To Install PyCharm In Ubuntu 14.04 and 16.04](https://itsfoss.com/install-pycharm-ubuntu/)
 ```sh
 sudo apt install gconf2
 ```
