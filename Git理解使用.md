@@ -176,6 +176,8 @@ reset branch:
 
 # FAQ
 
+#### [What's the difference between HEAD^ and HEAD~ in Git?](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
+
 #### There is no tracking information for the current branch.
 
 ```
