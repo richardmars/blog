@@ -176,6 +176,11 @@ reset branch:
 
 # FAQ
 
+#### 合并git记录
+
+- [Squash my last X commits together using Git](https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git)
+- [How can I merge two commits into one?](https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one)
+
 #### [What's the difference between HEAD^ and HEAD~ in Git?](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
 
 #### There is no tracking information for the current branch.
