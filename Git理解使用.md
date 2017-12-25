@@ -205,7 +205,7 @@ git config --global http.sslverify false
 
 #### Pointer file error: Unable to parse pointer at: "xxx"
 
-可以看看[https://github.com/git-lfs/git-lfs/issues/1828](https://github.com/git-lfs/git-lfs/issues/1828)
+可以看看[https://github.com/git-lfs/git-lfs/issues/1828](https://github.com/git-lfs/git-lfs/issues/1828) 以及[https://github.com/git-lfs/git-lfs/issues/1113](https://github.com/git-lfs/git-lfs/issues/1113) 重点是理解lfs
 
 # 其他
 
