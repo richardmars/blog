@@ -203,6 +203,10 @@ git config --global core.autocrlf input
 git config --global http.sslverify false
 ```
 
+#### Pointer file error: Unable to parse pointer at: "xxx"
+
+可以看看[https://github.com/git-lfs/git-lfs/issues/1828](https://github.com/git-lfs/git-lfs/issues/1828)
+
 # 其他
 
 * 找回没有引用的commit，参考reflog
