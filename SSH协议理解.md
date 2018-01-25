@@ -1,5 +1,10 @@
 # SSH协议理解
 
+> 常用的远程联机方式：  
+> - 文字接口明码：telnet, rsh 等为主，目前非常少用；
+> - 文字接口密码： ssh 为主，已经取代上述的 telnet, rsh 等明码方式；
+> - 图形接口： Xdmcp, VNC, RDP 等较为常见
+
 SSH（Secure SHell protocol）：安全Shell程序协议，基于TCP的应用层协议
 
 # 原理
