@@ -178,8 +178,30 @@ reset branch:
 
 #### 合并git记录
 
+主要用到git的squash选项，参考：
+
 - [Squash my last X commits together using Git](https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git)
 - [How can I merge two commits into one?](https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one)
+
+当commit中存在merge的commit时，可能上述方法就不能奏效，这是可以基于origin/master创建一个分支，然后从包含commit记录的分支合并过来，参考：[Merge all changes from another branch as a single commit](https://stackoverflow.com/questions/3697178/merge-all-changes-from-another-branch-as-a-single-commit)
+
+```sh
+git merge --squash <feature branch>
+```
+
+#### 删除local和remote分支
+
+参考[stackoverflow](https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely), 删除remote
+
+```sh
+git push origin --delete <your_branch> 
+```
+
+删除local
+```sh 
+git branch -D <branch_name> 
+```
+
 
 #### [What's the difference between HEAD^ and HEAD~ in Git?](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
 
