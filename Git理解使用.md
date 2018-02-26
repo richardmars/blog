@@ -1,6 +1,6 @@
 # Git理解使用
 
-参考：[git pro](https://git-scm.com/book/en/v2)，[git-scm.com/blog](https://git-scm.com/blog)
+参考：[git pro](https://git-scm.com/book/en/v2)，[git-scm.com/blog](https://git-scm.com/blog), [Think Like (a) Git](http://think-like-a-git.net/)
 
 # 1. 分布式
 
