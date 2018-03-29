@@ -7,9 +7,9 @@
 
 SSH（Secure SHell protocol）：安全Shell程序协议，基于TCP的应用层协议
 
-# 原理
+## 原理
 
-## 非对称加密
+### 非对称加密
 
 主要是透过两把不一样的公钥与私钥 (Public and Private Key) 来进行加密与解密的过程
 
@@ -31,7 +31,7 @@ SSH联机过程
 - 服务器到客户端:服务器传送数据时,拿用户的公钥加密后送出。客户端接收后,用自己的私钥解密;
 - 客户端到服务器:客户端传送数据时,拿服务器的公钥加密后送出。服务器接收后,用服务器的私钥解密。
 
-## SSH服务
+### SSH服务
 
 服务端提供的公钥与自己的私钥都放置于 /etc/ssh/ssh_host*，对于不同具体加密协议有不同的密钥对
 ```sh
@@ -76,7 +76,7 @@ RSA host key for localhost has changed and you have requested strict checking.
 Host key verification failed.
 ```
 
-## 免密码远程登录
+### 免密码远程登录
 
 既然ssh的数据交互是通过公私钥加解密，因此理论上只要获取对方的公钥后就可以进行数据交换，因此ssh支持免密码远程登录。
 
@@ -114,16 +114,35 @@ xic@xic-desktop:~$ ssh-add
 Identity added: /home/xic/.ssh/id_rsa (/home/xic/.ssh/id_rsa)
 ```
 
-# 应用
+此时可能会出现
 
-#### sftp
+```sh
+product94:/opt/tools/netconftool_1.4.4 # ssh-add
+Could not open a connection to your authentication agent.
+```
+
+此时需要启动ssh-agent
+
+```sh
+product94:/opt/tools/netconftool_1.4.4 # eval `ssh-agent -s`
+Agent pid 36549
+product94:/opt/tools/netconftool_1.4.4 # ssh-add
+Identity added: /root/.ssh/id_rsa (/root/.ssh/id_rsa)
+```
+
+参考：[Could not open a connection to your authentication agent](https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent)
+
+## 应用
+
+### sftp
 
 安全加密的FTP协议，相当于通过ssh协议登录，然后执行FTP操作：
 
-```
+```sh
 cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get
 ```
-#### scp
+
+### scp
 
 安全的网络复制工具，shell脚本中经常使用。如果第一次登录且不想交互式输入密码，需要使用另外一个工具：passssh
 
@@ -131,19 +150,17 @@ cd/ls/mkdir/rmdir/pwd/chgrp/chown/rm/lcd/lls/lmkdir/put/get
 xic@xic-desktop:~$ sshpass -p "huawei123" scp -r -o StrictHostKeyChecking=no root@100.120.252.146:~/test.txt ~/
 ```
 
-#### git
+### git
 
 git支持的两种同步方式：http和ssh，ssh免密码参考isource的配置。
 
-# FAQ
+## FAQ
 
-#### 配置了public key，却连接不上git仓库，尤其是在动了ssh相关库之后
+### 配置了public key，却连接不上git仓库，尤其是在动了ssh相关库之后
 
 可能需要重启ssh-agent，参考[Could not open a connection to your authentication agent](https://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent)
 
 
-
-# 参考文档
+## 参考文档
 
 - 鸟哥的linux私房菜-服务器：[第十一章、远程联机服务器SSH / XDMCP / VNC / RDP](http://cn.linux.vbird.org/linux_server/0310telnetssh_2.php)
-
