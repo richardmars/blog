@@ -182,6 +182,7 @@ reset branch:
 
 - [Squash my last X commits together using Git](https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git)
 - [How can I merge two commits into one?](https://stackoverflow.com/questions/2563632/how-can-i-merge-two-commits-into-one)
+- [Rebasing a Git merge commit](https://stackoverflow.com/questions/30136558/git-how-to-squash-commits-which-have-merge-commit-in-between)
 
 当commit中存在merge的commit时，可能上述方法就不能奏效，这是可以基于origin/master创建一个分支，然后从包含commit记录的分支合并过来，参考：[Merge all changes from another branch as a single commit](https://stackoverflow.com/questions/3697178/merge-all-changes-from-another-branch-as-a-single-commit)
 
